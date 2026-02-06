@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import List, Optional
 
-from src.prompt_generator.loader import load_list
+from prompt_generator.loader import load_list
 
 
 class PromptGenerator:
@@ -32,8 +32,8 @@ class PromptGenerator:
         
         return (
             f"A realistic selfie photo of a {age}-year-old {gender} person from {country}, "
-            f"with mood {mood} and expression of {expresion}, "
-            f"lighting {lighting}, "
-            f"with background {background}, "
-            f"and additional camera details {camera_detail}."
+            f"with {mood} mood and {expresion} expression, "
+            f"{lighting} lighting, "
+            f"with {background} background, "
+            f"and additional camera details: {camera_detail}."
         )
