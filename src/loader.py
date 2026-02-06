@@ -8,6 +8,7 @@ T = TypeVar("T")
 DATA_DIR = Path(__file__).parent.parent / "input_data"
 
 def load_list(filename: str, expected_type: type[T]) -> List[T]:
+    """Loads a JSON file and verifies that it contains a list of items of the expected type."""
     path = DATA_DIR / filename
     with path.open(encoding="utf-8") as f:
         data = json.load(f)

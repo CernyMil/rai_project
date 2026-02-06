@@ -7,6 +7,7 @@ from loader import load_list
 
 
 class PromptGenerator:
+    """Generates random prompts for Meta AI based on predefined lists of attributes."""
     def __init__(self, seed: Optional[int] = None) -> None:
         self._rng: random.Random = random.Random(seed)
 
