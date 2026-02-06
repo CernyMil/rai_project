@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import List, Optional
 
-from loader import load_list
+from src.prompt_generator.loader import load_list
 
 
 class PromptGenerator:

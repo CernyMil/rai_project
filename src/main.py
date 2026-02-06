@@ -1,5 +1,5 @@
-from prompt_generator import PromptGenerator
-from meta_ai_scraper import MetaAIScraper
+from src.prompt_generator.prompt_generator import PromptGenerator
+from src.meta_ai_scraper.meta_ai_scraper import MetaAIScraper
 
 def main():
     #for _ in range(10):
