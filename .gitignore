@@ -10,7 +10,7 @@ wheels/
 .venv
 
 .env
-output_data
+output_data/*
 state.json
 
 uv.lock

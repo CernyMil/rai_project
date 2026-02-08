@@ -68,5 +68,6 @@ class MetaAIScraper:
             with page.expect_download(timeout=60_000) as download_info:
                 download_button.click(force=True)
         download = download_info.value
+        os.makedirs("./output_data", exist_ok=True)
         output_path = os.path.join("./output_data", download.suggested_filename)
         download.save_as(output_path)
