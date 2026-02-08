@@ -21,6 +21,7 @@ class PromptGenerator:
         self.camera_details: List[str] = load_list("camera_details.json", str)
 
     def generate(self) -> str:
+        """Generates a random prompt by selecting random attributes from the lists."""
         age: int = self._rng.choice(self.ages)
         gender: str = self._rng.choice(self.genders)
         country: str = self._rng.choice(self.countries)

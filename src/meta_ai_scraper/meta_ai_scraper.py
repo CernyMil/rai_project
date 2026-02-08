@@ -29,22 +29,24 @@ class MetaAIScraper:
             browser.close()
 
     def _open_meta_ai(self, page: Page) -> None:
+        """Opens the Meta AI homepage and waits for it to load."""
         page.goto("https://www.meta.ai/", wait_until="domcontentloaded")
         page.wait_for_timeout(5_000)
         
 
     def _navigate_to_login_page(self, page: Page) -> None:
+        """Handles the initial navigation and login flow on Meta AI, if not already logged in."""
         if page.locator("text=Welcome to Meta AI").is_visible():
             page.click("text=Continue")    
             page.get_by_text("Year").click()
             page.get_by_text("1990").click()
             page.get_by_role("Button", name="Continue").click()
-            #create_button.click()
             page.get_by_role("Button", name="Log in").click()
             page.get_by_role("button", name="Decline optional cookies").click()
         
     
     def _send_prompt(self, page: Page, prompt: str) -> None:
+        """Finds the prompt input area, types the prompt, and submits it."""
         textarea = page.locator("[data-testid='composer-input'][contenteditable='true']")
         textarea.wait_for(state="visible", timeout=60_000)
         textarea.click()
@@ -52,6 +54,7 @@ class MetaAIScraper:
         page.keyboard.press("Enter")
             
     def _download_image(self, page: Page) -> None:
+        """Waits for the download button to appear and clicks it to download the generated image."""
         download_selector = '[aria-label="Download"], [aria-label="Stáhnout"]'
         download_button = page.locator(download_selector).first
         try:

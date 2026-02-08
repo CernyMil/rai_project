@@ -19,7 +19,7 @@ def main() -> None:
         prompt = generator.generate()
         print(prompt)
 
-        client = MetaAIScraper()
+        client = MetaAIScraper(headless=False)
         client.run_prompt(prompt)
 
 
