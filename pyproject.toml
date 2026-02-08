@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-meta_scraper = "main:main"
+meta-scraper = "main:main"
 
 [tool.uv]
 package = true
