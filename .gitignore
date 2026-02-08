@@ -11,3 +11,4 @@ wheels/
 
 .env
 output_data
+state.json
