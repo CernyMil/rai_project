@@ -1,5 +1,5 @@
 [project]
-name = "Meta AI Scraper"
+name = "meta-ai-scraper"
 version = "0.1.0"
 description = "Meta AI Image Prompt Generator and Scraper"
 authors = [
@@ -12,7 +12,7 @@ dependencies = [
     "playwright>=1.58.0",
     "pytest>=9.0.2",
 ]
-    
+
 [project.scripts]
 meta_scraper = "main:main"
 
