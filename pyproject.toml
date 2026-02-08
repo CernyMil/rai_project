@@ -1,9 +1,9 @@
 [project]
-name = "rai-project"
+name = "Meta AI Scraper"
 version = "0.1.0"
-description = "RAI_SE_HOMEWORK"
+description = "Meta AI Image Prompt Generator and Scraper"
 authors = [
-    { name = "Milan Černý", email = "milancerny2{at}seznam.cz" },
+    { name = "Milan Černý"},
 ]
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,6 +12,12 @@ dependencies = [
     "playwright>=1.58.0",
     "pytest>=9.0.2",
 ]
+    
+[project.scripts]
+meta_scraper = "main:main"
+
+[tool.uv]
+package = true
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 [tool.mypy]
