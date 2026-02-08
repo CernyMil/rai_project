@@ -6,7 +6,7 @@ Generate randomized Meta AI image prompts and submit them through an automated b
 ## What it does
 - Builds prompts from curated attribute lists (age, gender, country, mood, expression, lighting, background, camera details)
 - Opens Meta AI in Chromium and submits the generated prompt
-- Downloads the resulting image to [output_data](output_data)
+- Downloads the resulting image to output_data
 
 ## Requirements
 - Python 3.12+
