@@ -55,17 +55,12 @@ class MetaAIScraper:
             
     def _download_image(self, page: Page) -> None:
         """Waits for the download button to appear and clicks it to download the generated image."""
+        page.wait_for_timeout(20_000) #Image generation timeout
+        page.locator('[aria-label="View media"]').first.click(force=True)
         download_button = page.locator('[aria-label="Download"]').first
-        try:
-            download_button.wait_for(state="visible", timeout=30_000)
-            download_button.scroll_into_view_if_needed()
-            with page.expect_download(timeout=30_000) as download_info:
-                download_button.click(force=True)
-        except PlaywrightTimeoutError:
-            page.locator('[aria-label="View media"]').first.click(force=True)
-            download_button.wait_for(state="visible", timeout=30_000)
-            with page.expect_download(timeout=30_000) as download_info:
-                download_button.click(force=True)
+        download_button.wait_for(state="visible", timeout=30_000)
+        with page.expect_download(timeout=30_000) as download_info:
+            download_button.click(force=True)
         download = download_info.value
         os.makedirs("./output_data", exist_ok=True)
         output_path = os.path.join("./output_data", download.suggested_filename)
