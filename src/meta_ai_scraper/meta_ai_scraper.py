@@ -1,6 +1,6 @@
 import os
 
-from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError, sync_playwright
+from playwright.sync_api import Page, sync_playwright
 
 class MetaAIScraper:
     """Scrapes Meta AI by opening a browser, navigating to the site, and sending prompts."""
