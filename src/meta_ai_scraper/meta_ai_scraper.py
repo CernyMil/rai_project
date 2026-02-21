@@ -45,9 +45,9 @@ class MetaAIScraper:
     
     def _send_prompt(self, page: Page, prompt: str) -> None:
         """Finds the prompt input area, types the prompt, and submits it."""
-        self.textarea = page.locator("[data-testid='composer-input'][contenteditable='true']")
-        self.textarea.wait_for(state="visible", timeout=60_000)
-        self.textarea.click()
+        textarea = page.locator("[data-testid='composer-input'][contenteditable='true']")
+        textarea.wait_for(state="visible", timeout=60_000)
+        textarea.click()
         page.keyboard.type(prompt, delay=20)
         page.keyboard.press("Enter")
             
@@ -55,11 +55,11 @@ class MetaAIScraper:
         """Waits for the download button to appear and clicks it to download the generated image."""
         page.wait_for_timeout(20_000) #Image generation timeout
         page.locator('[aria-label="View media"]').first.click(force=True)
-        self.download_button = page.locator('[aria-label="Download"]').first
-        self.download_button.wait_for(state="visible", timeout=30_000)
+        download_button = page.locator('[aria-label="Download"]').first
+        download_button.wait_for(state="visible", timeout=30_000)
         with page.expect_download(timeout=30_000) as download_info:
-            self.download_button.click(force=True)
-        self.download = download_info.value
+            download_button.click(force=True)
+        download = download_info.value
         os.makedirs("./output_data", exist_ok=True)
-        output_path = os.path.join("./output_data", self.download.suggested_filename)
-        self.download.save_as(output_path)
+        output_path = os.path.join("./output_data", download.suggested_filename)
+        download.save_as(output_path)
